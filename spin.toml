@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["otomomik"]
+description = ""
+name = "spin-fermyon-cloud"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "spin-fermyon-cloud"
+source = "target/wasm32-wasi/release/spin_fermyon_cloud.wasm"
+allowed_http_hosts = []
+[component.trigger]
+route = "/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
